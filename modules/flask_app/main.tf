@@ -5,7 +5,7 @@
 terraform {
   required_providers {
     docker = {
-      source  = "kreuzwerker/docker"    # Docker provider to manage containers and images
+      source  = "kreuzwerker/docker"   # Docker provider to manage containers and images
       version = "3.6.2"                # Specific version for consistency
     }
   }
@@ -14,7 +14,7 @@ terraform {
 # Build a custom Docker image from our Flask application code
 # This compiles our app code into a runnable container image
 resource "docker_image" "flask_app" {
-  name         = "flask-app-image"                    # Name for our custom image
+  name         = "flask-app-image"                   # Name for our custom image
   build {
     context    = "${path.module}/../../app"          # Directory containing our app code
     dockerfile = "${path.module}/../../app/Dockerfile" # Instructions for building the image

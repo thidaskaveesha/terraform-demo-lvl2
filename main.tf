@@ -5,7 +5,7 @@
 terraform {
   required_providers {
     docker = {
-      source  = "kreuzwerker/docker"  # Official Docker provider from Terraform Registry
+      source  = "kreuzwerker/docker" # Official Docker provider from Terraform Registry
       version = "3.6.2"              # Specific version to ensure compatibility
     }
   }
@@ -24,7 +24,7 @@ module "docker_network" {
 # Module 2: MySQL Database
 # Creates and configures the MySQL database container
 module "mysql_db" {
-  source           = "./modules/mysql_db"           # Path to MySQL module code
+  source           = "./modules/mysql_db"          # Path to MySQL module code
   db_root_password = var.db_root_password          # Pass root password from variables
   db_name          = var.db_name                   # Pass database name from variables
   db_user          = var.db_user                   # Pass application username from variables
@@ -35,6 +35,6 @@ module "mysql_db" {
 # Module 3: Flask Application
 # Creates and configures the Flask web application container
 module "flask_app" {
-  source       = "./modules/flask_app"              # Path to Flask module code
+  source       = "./modules/flask_app"             # Path to Flask module code
   network_name = module.docker_network.name        # Connect to same network as database
 }
